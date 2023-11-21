@@ -1,25 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Artist from "./routes/Artist";
+import Favourites from "./routes/Favourites";
+import { ArtistEventsContext } from "./features/Contexts";
+import { IArtistData, IEventsData } from "./DataInterfaces/DataInterfaces";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Artist />,
+  },
+  {
+    path: "/favourites",
+    element: <Favourites />,
+  },
+]);
 
 function App() {
+  const [artistState, setArtistState] = useState<IArtistData | null>(null);
+  const [artistEvents, setArtistEvents] = useState<IEventsData[] | null>(null);
+  const [favourites, setFavour] = useState<IEventsData[] | null>(null);
+
+  const setFavourites = (items: IEventsData[]) => {
+    localStorage.setItem("items", JSON.stringify(items));
+    setFavour(items);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("items")) {
+      const items = JSON.parse(localStorage.getItem("items")!);
+      if (items) {
+        setFavourites(items);
+      }
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ArtistEventsContext.Provider
+      value={{
+        artistEvents,
+        setArtistEvents,
+        favouriteEvents: favourites,
+        setFavouriteEvents: setFavourites,
+        artistState,
+        setArtistState,
+      }}
+    >
+      <RouterProvider router={router} />
+    </ArtistEventsContext.Provider>
   );
 }
 
