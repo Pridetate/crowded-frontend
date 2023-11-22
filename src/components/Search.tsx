@@ -49,7 +49,7 @@ const Search = ({ setSearchParams }: SearchProps) => {
           endAdornment: (
             <InputAdornment position="start">
               <Tooltip title="choose the type of events" placement="top">
-                <FormControl fullWidth>
+                <FormControl fullWidth size="small">
                   <Select
                     variant="filled"
                     labelId="demo-simple-select-label"

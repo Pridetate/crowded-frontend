@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 import Artist from "./routes/Artist";
 import Favourites from "./routes/Favourites";
@@ -16,6 +20,10 @@ const router = createBrowserRouter(
     {
       path: "/favourites",
       element: <Favourites />,
+    },
+    {
+      path: "*",
+      element: <Navigate to="/" replace={true} />,
     },
   ],
   { basename: "/crowded-frontend" }

@@ -32,8 +32,14 @@ const CustomTable = ({
       <TableContainer component={Paper}>
         <Table sx={{ width: "100%" }} aria-label="simple table" stickyHeader>
           <TableHead>
-            <TableRow style={{ backgroundColor: "#727fb0" }}>
-              {events ? "Events" : "Favourites"}
+            <TableRow
+              style={{
+                backgroundColor: "#7e8cbd",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <span>{events ? "Events" : "Favourites"}</span>
             </TableRow>
           </TableHead>
         </Table>
@@ -42,10 +48,18 @@ const CustomTable = ({
         <Table sx={{ width: "100%" }} aria-label="simple table" stickyHeader>
           <TableHead>
             <TableRow style={{ backgroundColor: "#727fb0" }}>
-              <TableCell>favourite</TableCell>
-              <TableCell>Venue name</TableCell>
-              <TableCell align="right">City</TableCell>
-              <TableCell align="right">Date</TableCell>
+              <TableCell>
+                <span>favourite</span>
+              </TableCell>
+              <TableCell>
+                <span>Venue name</span>
+              </TableCell>
+              <TableCell>
+                <span>City</span>
+              </TableCell>
+              <TableCell>
+                <span>Date</span>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -71,11 +85,13 @@ const CustomTable = ({
                   />
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {event.venue.name}
+                  <span>{event.venue.name}</span>
                 </TableCell>
-                <TableCell>{event.venue.city}</TableCell>
                 <TableCell>
-                  {moment(event.datetime).format("YYYY-MM-DD")}
+                  <span>{event.venue.city}</span>
+                </TableCell>
+                <TableCell>
+                  <span>{moment(event.datetime).format("YYYY-MM-DD")}</span>
                 </TableCell>
               </TableRow>
             ))}
