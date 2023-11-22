@@ -1,9 +1,11 @@
 import axios from "axios";
 import { IArtistData, IEventsData } from "../DataInterfaces/DataInterfaces";
 
+const BASE_API = "https://pride-crowded.onrender.com/";
+
 export const fetchArtistData = async (name: string) => {
   return await axios
-    .post<IArtistData>("http://localhost:5000/", {
+    .post<IArtistData>(BASE_API, {
       name,
     })
     .then(
@@ -18,7 +20,7 @@ export const fetchArtistData = async (name: string) => {
 };
 export const fetchEventsData = async (name: string, date: string = "all") => {
   return await axios
-    .post("http://localhost:5000/events", {
+    .post(`${BASE_API}events`, {
       name,
       date,
     })

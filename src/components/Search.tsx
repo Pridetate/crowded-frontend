@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Alert, Box, InputAdornment, TextField, Tooltip } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
-import InputLabel from "@mui/material/InputLabel";
 
 interface SearchProps {
   setSearchParams: (search: string, date: string) => void;
