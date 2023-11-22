@@ -1,28 +1,19 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import CloseIcon from "@mui/icons-material/Close";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { IEventsData } from "../DataInterfaces/DataInterfaces";
 import { ArtistEventsContext } from "../features/Contexts";
-import { Checkbox, Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import { useNavigate } from "react-router";
 
 interface ModalProps {

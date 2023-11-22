@@ -17,8 +17,7 @@ import { IEventsData } from "../DataInterfaces/DataInterfaces";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const Favourites = () => {
-  const { artistEvents, favouriteEvents } =
-    React.useContext(ArtistEventsContext);
+  const { favouriteEvents } = React.useContext(ArtistEventsContext);
   const [eventData, setEventData] = React.useState<IEventsData | null>(null);
   const [open, setOpen] = React.useState(false);
   console.log(favouriteEvents);
