@@ -11,23 +11,20 @@ import Favourites from "./routes/Favourites";
 import { ArtistEventsContext } from "./features/Contexts";
 import { IArtistData, IEventsData } from "./DataInterfaces/DataInterfaces";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Artist />,
-    },
-    {
-      path: "/favourites",
-      element: <Favourites />,
-    },
-    {
-      path: "*",
-      element: <Navigate to="/" replace={true} />,
-    },
-  ],
-  { basename: "/crowded-frontend" }
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Artist />,
+  },
+  {
+    path: "/favourites",
+    element: <Favourites />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace={true} />,
+  },
+]);
 
 function App() {
   const [artistState, setArtistState] = useState<IArtistData | null>(null);
